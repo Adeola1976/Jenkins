@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         APP_NAME = "my-java-app"
-        IMAGE_NAME = "Adeola1976/jenkins"
+        IMAGE_NAME = "jenkins"
         TAG = "${env.BUILD_NUMBER}"
     }
 
