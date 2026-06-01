@@ -7,15 +7,15 @@ pipeline {
         TAG = "${env.BUILD_NUMBER}"
         SONAR_URL = "http://localhost:2000"
     }
-     stage('Static Code Analysis') {
-         steps {
-            withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-            sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
-           }
-        }
-    }
+  
     stages {
-
+        stage('Static Code Analysis') {
+           steps {
+              withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+              sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+            }
+          }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
