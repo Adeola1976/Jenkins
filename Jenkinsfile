@@ -7,7 +7,6 @@ pipeline {
         TAG = "${env.BUILD_NUMBER}"
         SONAR_URL = "http://localhost:2000"
     }
-  
     stages {
         stage('Static Code Analysis') {
            steps {
