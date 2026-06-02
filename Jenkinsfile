@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+
     environment {
         APP_NAME = "my-java-app"
         IMAGE_NAME = "adeola1976/jenkins"
