@@ -12,7 +12,7 @@ pipeline {
         stage('Static Code Analysis') {
            steps {
               withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-              bat 'mvn sonar:sonar -Dsonar.login='sonarqube' -Dsonar.host.url=http://localhost:2000'
+              bat 'mvn sonar:sonar -Dsonar.login=%SONAR_AUTH_TOKEN% -Dsonar.host.url=http://localhost:2000'
             }
           }
         }
